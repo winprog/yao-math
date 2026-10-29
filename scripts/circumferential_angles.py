@@ -5,11 +5,17 @@
 角添加圆心角标注
 """
 
+import os
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import numpy as np
 from matplotlib import font_manager
 import matplotlib.patches as mpatches
+
+# 输出目录：脚本同级的 output 目录
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_DIR = os.path.join(os.path.dirname(SCRIPT_DIR), "output")
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # 设置中文字体 - 使用微软雅黑
 plt.rcParams['font.sans-serif'] = ['Microsoft YaHei', 'SimHei', 'DejaVu Sans']
@@ -214,8 +220,9 @@ def main():
     fig, ax = draw_circumferential_angles()
     
     # 保存图片
-    plt.savefig('circumferential_angles.png', dpi=300, bbox_inches='tight')
-    print("图片已保存为 'circumferential_angles.png'")
+    output_path = os.path.join(OUTPUT_DIR, 'circumferential_angles.png')
+    plt.savefig(output_path, dpi=300, bbox_inches='tight')
+    print(f"图片已保存为 '{output_path}'")
     
     # 显示图形
     plt.show()

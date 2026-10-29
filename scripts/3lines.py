@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
+import os
 import matplotlib.pyplot as plt
 import numpy as np
+
+# 输出目录：脚本同级的 output 目录
+OUTPUT_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "output")
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 plt.figure(figsize=(6, 4))
 ax = plt.subplot(111)
@@ -20,5 +25,5 @@ ax.set_xlim(-1, 6)
 ax.set_ylim(-1, 5)
 plt.legend()
 plt.title('Basic Three Lines Eight Angles')
-plt.savefig('test_q1_basic.png', dpi=100)
+plt.savefig(os.path.join(OUTPUT_DIR, 'test_q1_basic.png'), dpi=100)
 plt.close()

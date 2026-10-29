@@ -1,6 +1,11 @@
+import os
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from matplotlib.path import Path
+
+# 输出目录：脚本同级的 output 目录
+OUTPUT_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "output")
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # 设置中文字体 - 固定使用微软雅黑
 plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']
@@ -230,4 +235,5 @@ ax.text(5.5, 3.4, '∴ ∠1 = ∠3', fontsize=10, fontweight='bold')
 ax.text(5.5, 3.0, '∴ BC = CE (等角对等边)', fontsize=10, fontweight='bold', color='blue')
 
 plt.tight_layout()
+plt.savefig(os.path.join(OUTPUT_DIR, 'triangle.png'), dpi=300, bbox_inches='tight')
 plt.show()

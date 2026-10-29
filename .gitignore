@@ -1,2 +1,4 @@
 .trae
 *.png
+__pycache__/
+*.pyc

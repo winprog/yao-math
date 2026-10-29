@@ -6,11 +6,16 @@
 在几何学中，这种图形用于展示同位角、内错角、同旁内角等角度关系。
 """
 
+import os
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.patches as patches
 from matplotlib.path import Path
 import math
+
+# 输出目录：脚本同级的 output 目录
+OUTPUT_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "output")
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # 设置中文字体
 plt.rcParams['font.sans-serif'] = ['Microsoft YaHei', 'SimHei', 'DejaVu Sans']
@@ -243,7 +248,7 @@ def draw_parallel_lines_8_angles():
     plt.tight_layout()
     
     # 保存图像
-    plt.savefig('parallel_lines_8_angles_corrected.png', dpi=150, bbox_inches='tight')
+    plt.savefig(os.path.join(OUTPUT_DIR, 'parallel_lines_8_angles_corrected.png'), dpi=150, bbox_inches='tight')
     plt.show()
     
     return fig, ax
